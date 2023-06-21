@@ -1,4 +1,6 @@
 const readline = require("readline");
+const createNote = require("./createNote.js");
+const readNote = require("./readNote.js");
 
 function showMenu() {
   const rl = readline.createInterface({
@@ -19,10 +21,10 @@ function showMenu() {
     (userInput) => {
       switch (userInput) {
         case "1":
-          console.log("calling create note");
+          createNote();
           break;
         case "2":
-          console.log("calling readFile function");
+          readNote();
           break;
         case "3":
           console.log("updating create note");
