@@ -1,6 +1,8 @@
 const readline = require("readline");
 const createNote = require("./createNote.js");
 const readNote = require("./readNote.js");
+const updateNote = require("./updateNote.js");
+const deleteNote = require("./deleteNote.js");
 
 function showMenu() {
   const rl = readline.createInterface({
@@ -27,10 +29,10 @@ function showMenu() {
           readNote();
           break;
         case "3":
-          console.log("updating create note");
+          updateNote();
           break;
         case "4":
-          console.log("deleting note");
+          deleteNote();
           break;
         default:
           console.log("Invalid");
