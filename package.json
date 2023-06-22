@@ -2,7 +2,7 @@
   "name": "cli-notes",
   "version": "1.0.0",
   "description": "a simple command-line note-taking application using the fs module",
-  "main": "index.js",
+  "main": "notes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

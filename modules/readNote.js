@@ -8,7 +8,7 @@ function readNote() {
   });
 
   rl.question(`write the title of the note`, (title) => {
-    fs.readFile(`${title}.txt`, "utf8", (error, data) => {
+    fs.readFile(`${title}.txt`, "utf8", (err, data) => {
       if (err) {
         console.error("Error reading note:", err);
       } else {
