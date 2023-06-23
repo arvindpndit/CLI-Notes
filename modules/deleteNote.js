@@ -1,21 +1,15 @@
 const fs = require("fs");
-const readline = require("readline");
+const prompt = require("prompt-sync")();
 
 function deleteNote() {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+  const title = prompt("Add the title of the Note: ");
 
-  rl.question("Enter the note title: ", (title) => {
-    fs.unlink(`${title}.txt`, (err) => {
-      if (err) {
-        console.error("Error deleting note:", err);
-      } else {
-        console.log("Note deleted successfully!");
-      }
-      rl.close();
-    });
+  fs.unlink(`${title}.txt`, (err) => {
+    if (err) {
+      console.error("Error deleting note:", err);
+    } else {
+      console.log("Note deleted successfully!");
+    }
   });
 }
 

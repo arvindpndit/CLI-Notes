@@ -1,21 +1,15 @@
 const fs = require("fs");
-const readline = require("readline");
+const prompt = require("prompt-sync")();
 
 function readNote() {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+  const title = prompt("Add the title of the Note: ");
 
-  rl.question(`write the title of the note`, (title) => {
-    fs.readFile(`${title}.txt`, "utf8", (err, data) => {
-      if (err) {
-        console.error("Error reading note:", err);
-      } else {
-        console.log("Note content:", data);
-      }
-      rl.close();
-    });
+  fs.readFile(`${title}.txt`, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading note:", err);
+    } else {
+      console.log("Note content:", data);
+    }
   });
 }
 

@@ -1,23 +1,16 @@
 const fs = require("fs");
-const readline = require("readline");
+const prompt = require("prompt-sync")();
 
 function createNote() {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+  const title = prompt("Add the title of the Note: ");
+  const content = prompt("Add the content of the Note: ");
 
-  rl.question(`Add the title of the Note : `, (title) => {
-    rl.question(`Add the content of the Note : `, (content) => {
-      fs.writeFile(`${title}.txt`, content, "utf8", (error) => {
-        if (error) {
-          console.log("Oops " + error);
-        } else {
-          console.log("Note created succesfully");
-        }
-        rl.close();
-      });
-    });
+  fs.writeFile(`${title}.txt`, content, "utf8", (error) => {
+    if (error) {
+      console.log("Oops! An error occurred: " + error);
+    } else {
+      console.log("Note created successfully");
+    }
   });
 }
 
