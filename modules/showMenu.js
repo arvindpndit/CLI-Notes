@@ -3,6 +3,7 @@ const createNote = require("./createNote.js");
 const readNote = require("./readNote.js");
 const updateNote = require("./updateNote.js");
 const deleteNote = require("./deleteNote.js");
+const getAllNotes = require("./getAllNotes.js")
 
 function showMenu() {
   const rl = readline.createInterface({
@@ -18,8 +19,9 @@ function showMenu() {
     2. Read  a note
     3. Update a note
     4. Delete a note
-    
-  Choose one option from 1-4 : `,
+    5. Show all notes
+
+  Choose one option from 1-5 : `,
     (userInput) => {
       switch (userInput) {
         case "1":
@@ -33,6 +35,9 @@ function showMenu() {
           break;
         case "4":
           deleteNote();
+          break;
+        case "5": 
+          getAllNotes("./", "txt");
           break;
         default:
           console.log("Invalid");
